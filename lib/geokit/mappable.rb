@@ -211,6 +211,14 @@ module Geokit
     include Mappable
 
     attr_accessor :lat, :lng
+    
+    def x
+      EARTH_RADIUS_IN_KMS * Math.cos(self.lng) * Math.sin(self.lat)
+    end
+    
+    def y
+      EARTH_RADIUS_IN_KMS * Math.cos(self.lng) * Math.sin(self.lat)
+    end
 
     # Accepts latitude and longitude or instantiates an empty instance
     # if lat and lng are not provided. Converted to floats if provided
